@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package LargeImageProc;
+
+service TransferRPC{
+  rpc Transfer(stream OneImage) returns (Status) {}
+}
+
+message OneImage {
+  bytes image = 1;
+}
+
+message Status {
+  bool status = 1;
+}
+
