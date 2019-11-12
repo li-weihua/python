@@ -13,7 +13,7 @@ handler = logging.handlers.RotatingFileHandler(
 
 # use the basic logger
 logging.basicConfig(
-  format='%(asctime)s.%(msecs)03d %(pathname)s:%(lineno)d] %(levelname)s: %(message)s',
+  format='%(asctime)s.%(msecs)03d %(levelname).1s %(pathname)s:%(lineno)d] %(message)s',
   datefmt='%Y-%m-%d %H:%M:%S', 
   level=logging.DEBUG,
   handlers = [handler]

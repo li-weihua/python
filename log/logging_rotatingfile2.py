@@ -16,7 +16,7 @@ handler = logging.handlers.RotatingFileHandler(
 )
 
 formatter = logging.Formatter(
-  fmt='%(asctime)s.%(msecs)03d %(pathname)s:%(lineno)d] %(levelname)s: %(message)s',
+  fmt='%(asctime)s.%(msecs)03d %(levelname).1s %(pathname)s:%(lineno)d] %(message)s',
   datefmt='%Y-%m-%d %H:%M:%S')
 
 handler.setFormatter(formatter)
