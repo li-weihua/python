@@ -16,7 +16,7 @@ parser.add_argument(
 
 args = parser.parse_args()
 
-with open('./lena_gray_256.tif', 'rb') as f:
+with open('../files/lena_gray_256.tif', 'rb') as f:
     rawdata = f.read()
 
 base64_data = base64.b64encode(rawdata).decode('utf-8')
@@ -35,7 +35,6 @@ r = requests.post(url, json=json_data)
 
 if r.status_code != 200 :
     print(f'error status code: {r.status_code}')
-    sys.exit(1)
-
-print(r.json())
+else:
+    print(r.json())
 

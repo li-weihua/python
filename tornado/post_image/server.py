@@ -21,7 +21,7 @@ args = parser.parse_args()
 
 class MainHandler(tornado.web.RequestHandler):
     def initialize(self):
-        with open('./lena_gray_256.tif', 'rb') as f:
+        with open('../files/lena_gray_256.tif', 'rb') as f:
             self.org_data = f.read()
 
     def get(self):
@@ -33,8 +33,10 @@ class MainHandler(tornado.web.RequestHandler):
         raw_data = base64.b64decode(v)
 
         # check data
-        status = (self.org_data == raw_data)
-        self.write(json.dumps({'code': status, 'message': 'check ok!'}))
+        if self.org_data == raw_data:
+            self.write(json.dumps({'code': 0, 'message': 'check ok'}))
+        else:
+            self.write(json.dumps({'code': 1, 'message': 'check failed'}))
 
 
 def make_app():
